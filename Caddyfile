@@ -2,6 +2,6 @@
     reverse_proxy client:3000
     handle_path /api/* {
         reverse_proxy server:8080
-            rewrite * /api{uri}
+            rewrite * {uri}
     }
 }
