@@ -1,6 +1,6 @@
 services:
   server:
-    image: osentp/os_entp_server:main
+    image: osentp/os_entp_server:staging
     container_name: OpenSignServer-container
     volumes:
       - opensign-files:/usr/src/app/files
@@ -12,7 +12,6 @@ services:
     environment:
       - NODE_ENV=production
       - SERVER_URL=${HOST_URL:-https://localhost:3001}/api/app
-      - PUBLIC_URL=${HOST_URL:-https://localhost:3001}
     networks:
       - app-network
   mongo:
@@ -25,7 +24,7 @@ services:
     networks:
       - app-network
   client:
-    image: osentp/os_entp:main
+    image: osentp/os_entp:staging
     container_name: OpenSign-container
     depends_on:
       - server
